@@ -1,145 +1,145 @@
 |--- pressure <= 1021.87
-|   |--- ppgGreen <= 2008856.00
-|   |   |--- ppgRed <= 6130463.50
-|   |   |   |--- accelerometerZ <= 7.94
+|   |--- ppgGreen <= 1993782.50
+|   |   |--- ppgRed <= 6129797.00
+|   |   |   |--- accelerometerZ <= 7.99
 |   |   |   |   |--- pressure <= 1021.50
 |   |   |   |   |   |--- accelerometerZ <= 3.69
 |   |   |   |   |   |   |--- class: 0
 |   |   |   |   |   |--- accelerometerZ >  3.69
 |   |   |   |   |   |   |--- class: 1
 |   |   |   |   |--- pressure >  1021.50
+|   |   |   |   |   |--- ppgIR <= 6518662.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- ppgIR >  6518662.00
+|   |   |   |   |   |   |--- heartRate <= 82.00
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- heartRate >  82.00
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- accelerometerZ >  7.99
+|   |   |   |   |--- gyroscopeX <= -0.30
 |   |   |   |   |   |--- class: 0
-|   |   |   |--- accelerometerZ >  7.94
-|   |   |   |   |--- gyroscopeZ <= -0.45
-|   |   |   |   |   |--- class: 0
-|   |   |   |   |--- gyroscopeZ >  -0.45
+|   |   |   |   |--- gyroscopeX >  -0.30
 |   |   |   |   |   |--- class: 1
-|   |   |--- ppgRed >  6130463.50
+|   |   |--- ppgRed >  6129797.00
 |   |   |   |--- saturation <= 89.00
 |   |   |   |   |--- class: 0
 |   |   |   |--- saturation >  89.00
-|   |   |   |   |--- ppgIR <= 6610692.50
-|   |   |   |   |   |--- accelerometerY <= 0.02
-|   |   |   |   |   |   |--- accelerometerZ <= 4.87
+|   |   |   |   |--- ppgIR <= 6609641.00
+|   |   |   |   |   |--- accelerometerY <= 0.34
+|   |   |   |   |   |   |--- ppgIR <= 6495315.50
+|   |   |   |   |   |   |   |--- gyroscopeY <= 0.03
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- gyroscopeY >  0.03
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ppgIR >  6495315.50
 |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |--- accelerometerZ >  4.87
-|   |   |   |   |   |   |   |--- gyroscopeX <= 0.02
-|   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |--- gyroscopeX >  0.02
-|   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |--- accelerometerY >  0.02
-|   |   |   |   |   |   |--- lux <= 2.00
-|   |   |   |   |   |   |   |--- accelerometerZ <= 6.26
-|   |   |   |   |   |   |   |   |--- accelerometerX <= -8.26
+|   |   |   |   |   |--- accelerometerY >  0.34
+|   |   |   |   |   |   |--- lux <= 4.00
+|   |   |   |   |   |   |   |--- gyroscopeY <= 0.03
+|   |   |   |   |   |   |   |   |--- gyroscopeX <= -0.58
 |   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |--- accelerometerX >  -8.26
-|   |   |   |   |   |   |   |   |   |--- gyroscopeY <= -0.03
-|   |   |   |   |   |   |   |   |   |   |--- gyroscopeY <= -0.04
-|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |   |   |   |--- gyroscopeY >  -0.04
+|   |   |   |   |   |   |   |   |--- gyroscopeX >  -0.58
+|   |   |   |   |   |   |   |   |   |--- gyroscopeY <= -0.04
+|   |   |   |   |   |   |   |   |   |   |--- saturation <= 94.00
 |   |   |   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |   |--- gyroscopeY >  -0.03
+|   |   |   |   |   |   |   |   |   |   |--- saturation >  94.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- gyroscopeY >  -0.04
 |   |   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |--- accelerometerZ >  6.26
-|   |   |   |   |   |   |   |   |--- saturation <= 94.00
-|   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |--- saturation >  94.00
+|   |   |   |   |   |   |   |--- gyroscopeY >  0.03
+|   |   |   |   |   |   |   |   |--- ppgGreen <= 1935794.00
 |   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |--- lux >  2.00
-|   |   |   |   |   |   |   |--- accelerometerY <= 7.73
+|   |   |   |   |   |   |   |   |--- ppgGreen >  1935794.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- lux >  4.00
+|   |   |   |   |   |   |   |--- ppgGreen <= 1973082.00
 |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |--- accelerometerY >  7.73
+|   |   |   |   |   |   |   |--- ppgGreen >  1973082.00
 |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |--- ppgIR >  6610692.50
-|   |   |   |   |   |--- accelerometerY <= 8.71
+|   |   |   |   |--- ppgIR >  6609641.00
+|   |   |   |   |   |--- accelerometerY <= 8.99
 |   |   |   |   |   |   |--- ppgRed <= 6374361.50
 |   |   |   |   |   |   |   |--- class: 0
 |   |   |   |   |   |   |--- ppgRed >  6374361.50
-|   |   |   |   |   |   |   |--- accelerometerY <= 5.98
+|   |   |   |   |   |   |   |--- accelerometerY <= 5.96
 |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |--- accelerometerY >  5.98
+|   |   |   |   |   |   |   |--- accelerometerY >  5.96
 |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |--- accelerometerY >  8.71
-|   |   |   |   |   |   |--- gyroscopeY <= -0.92
-|   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |--- gyroscopeY >  -0.92
+|   |   |   |   |   |--- accelerometerY >  8.99
+|   |   |   |   |   |   |--- ppgIR <= 6708915.00
 |   |   |   |   |   |   |   |--- class: 1
-|   |--- ppgGreen >  2008856.00
+|   |   |   |   |   |   |--- ppgIR >  6708915.00
+|   |   |   |   |   |   |   |--- class: 0
+|   |--- ppgGreen >  1993782.50
 |   |   |--- saturation <= 97.50
-|   |   |   |--- accelerometerZ <= -6.88
-|   |   |   |   |--- accelerometerY <= 5.02
-|   |   |   |   |   |--- class: 0
-|   |   |   |   |--- accelerometerY >  5.02
-|   |   |   |   |   |--- accelerometerZ <= -7.32
-|   |   |   |   |   |   |--- accelerometerY <= 5.38
-|   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |--- accelerometerY >  5.38
-|   |   |   |   |   |   |   |--- heartRate <= 71.50
-|   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |--- heartRate >  71.50
-|   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |--- accelerometerZ >  -7.32
+|   |   |   |--- ppgIR <= 6439909.50
+|   |   |   |   |--- pressure <= 1021.46
+|   |   |   |   |   |--- ppgRed <= 6021837.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- ppgRed >  6021837.00
 |   |   |   |   |   |   |--- class: 1
-|   |   |   |--- accelerometerZ >  -6.88
-|   |   |   |   |--- ppgRed <= 6512662.00
-|   |   |   |   |   |--- saturation <= 96.50
-|   |   |   |   |   |   |--- ppgRed <= 6410129.50
-|   |   |   |   |   |   |   |--- ppgIR <= 6663540.00
-|   |   |   |   |   |   |   |   |--- ppgRed <= 6320783.00
-|   |   |   |   |   |   |   |   |   |--- ppgRed <= 6237534.00
-|   |   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |   |--- ppgRed >  6237534.00
-|   |   |   |   |   |   |   |   |   |   |--- ppgRed <= 6238437.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |   |   |   |--- ppgRed >  6238437.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |   |   |   |   |--- ppgRed >  6320783.00
-|   |   |   |   |   |   |   |   |   |--- accelerometerZ <= -3.55
-|   |   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |   |   |--- accelerometerZ >  -3.55
-|   |   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |--- ppgIR >  6663540.00
-|   |   |   |   |   |   |   |   |--- pressure <= 1021.60
-|   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |--- pressure >  1021.60
-|   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |--- ppgRed >  6410129.50
-|   |   |   |   |   |   |   |--- accelerometerX <= 4.33
-|   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |--- accelerometerX >  4.33
-|   |   |   |   |   |   |   |   |--- accelerometerZ <= 4.99
-|   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |   |--- accelerometerZ >  4.99
-|   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |--- saturation >  96.50
-|   |   |   |   |   |   |--- heartRate <= 110.00
-|   |   |   |   |   |   |   |--- accelerometerY <= 8.40
-|   |   |   |   |   |   |   |   |--- heartRate <= 98.50
-|   |   |   |   |   |   |   |   |   |--- accelerometerZ <= 8.24
-|   |   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |   |--- accelerometerZ >  8.24
-|   |   |   |   |   |   |   |   |   |   |--- accelerometerX <= -1.72
-|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |   |   |   |--- accelerometerX >  -1.72
-|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |   |   |--- heartRate >  98.50
-|   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |--- accelerometerY >  8.40
-|   |   |   |   |   |   |   |   |--- ppgIR <= 6618194.50
-|   |   |   |   |   |   |   |   |   |--- class: 1
-|   |   |   |   |   |   |   |   |--- ppgIR >  6618194.50
-|   |   |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |   |   |--- heartRate >  110.00
+|   |   |   |   |--- pressure >  1021.46
+|   |   |   |   |   |--- ppgRed <= 6259833.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- ppgRed >  6259833.00
+|   |   |   |   |   |   |--- ppgGreen <= 2076189.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ppgGreen >  2076189.50
 |   |   |   |   |   |   |   |--- class: 0
-|   |   |   |   |--- ppgRed >  6512662.00
-|   |   |   |   |   |--- class: 1
+|   |   |   |--- ppgIR >  6439909.50
+|   |   |   |   |--- ppgGreen <= 2103091.50
+|   |   |   |   |   |--- saturation <= 94.00
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- saturation >  94.00
+|   |   |   |   |   |   |--- ppgIR <= 6570891.00
+|   |   |   |   |   |   |   |--- accelerometerX <= -7.06
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- accelerometerX >  -7.06
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ppgIR >  6570891.00
+|   |   |   |   |   |   |   |--- heartRate <= 70.00
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- heartRate >  70.00
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- ppgGreen >  2103091.50
+|   |   |   |   |   |--- accelerometerZ <= -5.63
+|   |   |   |   |   |   |--- accelerometerY <= 4.80
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- accelerometerY >  4.80
+|   |   |   |   |   |   |   |--- lux <= 6.00
+|   |   |   |   |   |   |   |   |--- accelerometerY <= 7.14
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- accelerometerY >  7.14
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- lux >  6.00
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- accelerometerZ >  -5.63
+|   |   |   |   |   |   |--- ppgRed <= 6539305.50
+|   |   |   |   |   |   |   |--- ppgRed <= 6368710.00
+|   |   |   |   |   |   |   |   |--- accelerometerY <= 8.56
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- accelerometerY >  8.56
+|   |   |   |   |   |   |   |   |   |--- accelerometerY <= 8.68
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- accelerometerY >  8.68
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ppgRed >  6368710.00
+|   |   |   |   |   |   |   |   |--- accelerometerZ <= -1.94
+|   |   |   |   |   |   |   |   |   |--- gyroscopeY <= 0.26
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- gyroscopeY >  0.26
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- accelerometerZ >  -1.94
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- ppgRed >  6539305.50
+|   |   |   |   |   |   |   |--- class: 1
 |   |   |--- saturation >  97.50
-|   |   |   |--- accelerometerZ <= -3.54
-|   |   |   |   |--- class: 1
-|   |   |   |--- accelerometerZ >  -3.54
-|   |   |   |   |--- accelerometerY <= 8.13
+|   |   |   |--- accelerometerY <= 6.05
+|   |   |   |   |--- class: 0
+|   |   |   |--- accelerometerY >  6.05
+|   |   |   |   |--- ppgRed <= 5981248.50
 |   |   |   |   |   |--- class: 0
-|   |   |   |   |--- accelerometerY >  8.13
+|   |   |   |   |--- ppgRed >  5981248.50
 |   |   |   |   |   |--- class: 1
 |--- pressure >  1021.87
 |   |--- class: 0
