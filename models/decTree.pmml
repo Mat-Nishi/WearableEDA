@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4.1">
+    <Header copyright="Copyright (c) 2021 Software AG" description="Default description">
+        <Application name="Nyoka" version="5.3.0"/>
+        <Timestamp>2022-11-09 11:54:53.176942</Timestamp>
+    </Header>
+    <DataDictionary numberOfFields="15">
+        <DataField name="dateTime" optype="continuous" dataType="double"/>
+        <DataField name="heartRate" optype="continuous" dataType="double"/>
+        <DataField name="ppgGreen" optype="continuous" dataType="double"/>
+        <DataField name="ppgRed" optype="continuous" dataType="double"/>
+        <DataField name="ppgIR" optype="continuous" dataType="double"/>
+        <DataField name="saturation" optype="continuous" dataType="double"/>
+        <DataField name="pressure" optype="continuous" dataType="double"/>
+        <DataField name="accelerometerX" optype="continuous" dataType="double"/>
+        <DataField name="accelerometerY" optype="continuous" dataType="double"/>
+        <DataField name="accelerometerZ" optype="continuous" dataType="double"/>
+        <DataField name="gyroscopeX" optype="continuous" dataType="double"/>
+        <DataField name="gyroscopeY" optype="continuous" dataType="double"/>
+        <DataField name="gyroscopeZ" optype="continuous" dataType="double"/>
+        <DataField name="lux" optype="continuous" dataType="double"/>
+        <DataField name="sleepiness" optype="categorical" dataType="integer">
+            <Value value="0"/>
+            <Value value="1"/>
+        </DataField>
+    </DataDictionary>
+    <TreeModel modelName="DecisionTreeClassifier" functionName="classification" missingValuePenalty="1.0">
+        <MiningSchema>
+            <MiningField name="dateTime" usageType="active" optype="continuous"/>
+            <MiningField name="heartRate" usageType="active" optype="continuous"/>
+            <MiningField name="ppgGreen" usageType="active" optype="continuous"/>
+            <MiningField name="ppgRed" usageType="active" optype="continuous"/>
+            <MiningField name="ppgIR" usageType="active" optype="continuous"/>
+            <MiningField name="saturation" usageType="active" optype="continuous"/>
+            <MiningField name="pressure" usageType="active" optype="continuous"/>
+            <MiningField name="accelerometerX" usageType="active" optype="continuous"/>
+            <MiningField name="accelerometerY" usageType="active" optype="continuous"/>
+            <MiningField name="accelerometerZ" usageType="active" optype="continuous"/>
+            <MiningField name="gyroscopeX" usageType="active" optype="continuous"/>
+            <MiningField name="gyroscopeY" usageType="active" optype="continuous"/>
+            <MiningField name="gyroscopeZ" usageType="active" optype="continuous"/>
+            <MiningField name="lux" usageType="active" optype="continuous"/>
+            <MiningField name="sleepiness" usageType="target" optype="categorical"/>
+        </MiningSchema>
+        <Output>
+            <OutputField name="probability_0" optype="continuous" dataType="double" feature="probability" value="0"/>
+            <OutputField name="probability_1" optype="continuous" dataType="double" feature="probability" value="1"/>
+            <OutputField name="predicted_sleepiness" optype="categorical" dataType="integer" feature="predictedValue"/>
+        </Output>
+        <Node id="0" recordCount="6674.0">
+            <True/>
+            <Node id="1" recordCount="3309.0">
+                <SimplePredicate field="saturation" operator="lessOrEqual" value="1022.0951"/>
+                <Node id="2" recordCount="2395.0">
+                    <SimplePredicate field="heartRate" operator="lessOrEqual" value="1993749.0"/>
+                    <Node id="3" recordCount="285.0">
+                        <SimplePredicate field="ppgGreen" operator="lessOrEqual" value="6129797.0"/>
+                        <Node id="4" recordCount="271.0">
+                            <SimplePredicate field="accelerometerY" operator="lessOrEqual" value="7.937976"/>
+                            <Node id="5" recordCount="7.0">
+                                <SimplePredicate field="saturation" operator="lessOrEqual" value="1021.49646"/>
+                                <Node id="6" score="0" recordCount="2.0">
+                                    <SimplePredicate field="accelerometerY" operator="lessOrEqual" value="3.5661635"/>
+                                    <ScoreDistribution value="0" recordCount="2.0" confidence="1.0"/>
+                                    <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                </Node>
+                                <Node id="7" score="1" recordCount="5.0">
+                                    <SimplePredicate field="accelerometerY" operator="greaterThan" value="3.5661635"/>
+                                    <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                    <ScoreDistribution value="1" recordCount="5.0" confidence="1.0"/>
+                                </Node>
+                            </Node>
+                            <Node id="8" recordCount="264.0">
+                                <SimplePredicate field="saturation" operator="greaterThan" value="1021.49646"/>
+                                <Node id="9" score="0" recordCount="260.0">
+                                    <SimplePredicate field="ppgRed" operator="lessOrEqual" value="6518042.0"/>
+                                    <ScoreDistribution value="0" recordCount="260.0" confidence="1.0"/>
+                                    <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                </Node>
+                                <Node id="10" recordCount="4.0">
+                                    <SimplePredicate field="ppgRed" operator="greaterThan" value="6518042.0"/>
+                                    <Node id="11" score="1" recordCount="1.0">
+                                        <SimplePredicate field="ppgIR" operator="lessOrEqual" value="96.5"/>
+                                        <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                        <ScoreDistribution value="1" recordCount="1.0" confidence="1.0"/>
+                                    </Node>
+                                    <Node id="12" score="0" recordCount="3.0">
+                                        <SimplePredicate field="ppgIR" operator="greaterThan" value="96.5"/>
+                                        <ScoreDistribution value="0" recordCount="3.0" confidence="1.0"/>
+                                        <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                    </Node>
+                                </Node>
+                            </Node>
+                        </Node>
+                        <Node id="13" recordCount="14.0">
+                            <SimplePredicate field="accelerometerY" operator="greaterThan" value="7.937976"/>
+                            <Node id="14" score="1" recordCount="12.0">
+                                <SimplePredicate field="saturation" operator="lessOrEqual" value="1021.56934"/>
+                                <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                <ScoreDistribution value="1" recordCount="12.0" confidence="1.0"/>
+                            </Node>
+                            <Node id="15" score="0" recordCount="2.0">
+                                <SimplePredicate field="saturation" operator="greaterThan" value="1021.56934"/>
+                                <ScoreDistribution value="0" recordCount="2.0" confidence="1.0"/>
+                                <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                            </Node>
+                        </Node>
+                    </Node>
+                    <Node id="16" recordCount="2110.0">
+                        <SimplePredicate field="ppgGreen" operator="greaterThan" value="6129797.0"/>
+                        <Node id="17" score="0" recordCount="55.0">
+                            <SimplePredicate field="ppgIR" operator="lessOrEqual" value="89.0"/>
+                            <ScoreDistribution value="0" recordCount="55.0" confidence="1.0"/>
+                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                        </Node>
+                        <Node id="18" recordCount="2055.0">
+                            <SimplePredicate field="ppgIR" operator="greaterThan" value="89.0"/>
+                            <Node id="19" recordCount="1982.0">
+                                <SimplePredicate field="ppgRed" operator="lessOrEqual" value="6605461.0"/>
+                                <Node id="20" recordCount="23.0">
+                                    <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="0.34356794"/>
+                                    <Node id="21" score="1" recordCount="2.0">
+                                        <SimplePredicate field="ppgRed" operator="lessOrEqual" value="6491302.0"/>
+                                        <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                        <ScoreDistribution value="1" recordCount="2.0" confidence="1.0"/>
+                                    </Node>
+                                    <Node id="22" recordCount="21.0">
+                                        <SimplePredicate field="ppgRed" operator="greaterThan" value="6491302.0"/>
+                                        <Node id="23" score="1" recordCount="1.0">
+                                            <SimplePredicate field="heartRate" operator="lessOrEqual" value="1671614.5"/>
+                                            <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                            <ScoreDistribution value="1" recordCount="1.0" confidence="1.0"/>
+                                        </Node>
+                                        <Node id="24" score="0" recordCount="20.0">
+                                            <SimplePredicate field="heartRate" operator="greaterThan" value="1671614.5"/>
+                                            <ScoreDistribution value="0" recordCount="20.0" confidence="1.0"/>
+                                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                        </Node>
+                                    </Node>
+                                </Node>
+                                <Node id="25" recordCount="1959.0">
+                                    <SimplePredicate field="accelerometerX" operator="greaterThan" value="0.34356794"/>
+                                    <Node id="26" recordCount="1949.0">
+                                        <SimplePredicate field="gyroscopeZ" operator="lessOrEqual" value="2.0"/>
+                                        <Node id="27" recordCount="1935.0">
+                                            <SimplePredicate field="gyroscopeX" operator="lessOrEqual" value="0.04520403"/>
+                                            <Node id="28" recordCount="1926.0">
+                                                <SimplePredicate field="gyroscopeY" operator="lessOrEqual" value="0.1685988"/>
+                                                <Node id="29" recordCount="7.0">
+                                                    <SimplePredicate field="gyroscopeY" operator="lessOrEqual" value="-0.10445796"/>
+                                                    <Node id="30" score="1" recordCount="6.0">
+                                                        <SimplePredicate field="gyroscopeY" operator="lessOrEqual" value="-0.122783914"/>
+                                                        <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                                        <ScoreDistribution value="1" recordCount="6.0" confidence="1.0"/>
+                                                    </Node>
+                                                    <Node id="31" score="0" recordCount="1.0">
+                                                        <SimplePredicate field="gyroscopeY" operator="greaterThan" value="-0.122783914"/>
+                                                        <ScoreDistribution value="0" recordCount="1.0" confidence="1.0"/>
+                                                        <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                                    </Node>
+                                                </Node>
+                                                <Node id="32" score="1" recordCount="1919.0">
+                                                    <SimplePredicate field="gyroscopeY" operator="greaterThan" value="-0.10445796"/>
+                                                    <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                                    <ScoreDistribution value="1" recordCount="1919.0" confidence="1.0"/>
+                                                </Node>
+                                            </Node>
+                                            <Node id="33" recordCount="9.0">
+                                                <SimplePredicate field="gyroscopeY" operator="greaterThan" value="0.1685988"/>
+                                                <Node id="34" score="0" recordCount="2.0">
+                                                    <SimplePredicate field="ppgIR" operator="lessOrEqual" value="94.0"/>
+                                                    <ScoreDistribution value="0" recordCount="2.0" confidence="1.0"/>
+                                                    <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                                </Node>
+                                                <Node id="35" score="1" recordCount="7.0">
+                                                    <SimplePredicate field="ppgIR" operator="greaterThan" value="94.0"/>
+                                                    <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                                    <ScoreDistribution value="1" recordCount="7.0" confidence="1.0"/>
+                                                </Node>
+                                            </Node>
+                                        </Node>
+                                        <Node id="36" recordCount="14.0">
+                                            <SimplePredicate field="gyroscopeX" operator="greaterThan" value="0.04520403"/>
+                                            <Node id="37" score="1" recordCount="9.0">
+                                                <SimplePredicate field="heartRate" operator="lessOrEqual" value="1915931.0"/>
+                                                <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                                <ScoreDistribution value="1" recordCount="9.0" confidence="1.0"/>
+                                            </Node>
+                                            <Node id="38" score="0" recordCount="5.0">
+                                                <SimplePredicate field="heartRate" operator="greaterThan" value="1915931.0"/>
+                                                <ScoreDistribution value="0" recordCount="5.0" confidence="1.0"/>
+                                                <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                            </Node>
+                                        </Node>
+                                    </Node>
+                                    <Node id="39" recordCount="10.0">
+                                        <SimplePredicate field="gyroscopeZ" operator="greaterThan" value="2.0"/>
+                                        <Node id="40" score="0" recordCount="9.0">
+                                            <SimplePredicate field="heartRate" operator="lessOrEqual" value="1973082.0"/>
+                                            <ScoreDistribution value="0" recordCount="9.0" confidence="1.0"/>
+                                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                        </Node>
+                                        <Node id="41" score="1" recordCount="1.0">
+                                            <SimplePredicate field="heartRate" operator="greaterThan" value="1973082.0"/>
+                                            <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                            <ScoreDistribution value="1" recordCount="1.0" confidence="1.0"/>
+                                        </Node>
+                                    </Node>
+                                </Node>
+                            </Node>
+                            <Node id="42" recordCount="73.0">
+                                <SimplePredicate field="ppgRed" operator="greaterThan" value="6605461.0"/>
+                                <Node id="43" recordCount="61.0">
+                                    <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="8.9758625"/>
+                                    <Node id="44" score="0" recordCount="51.0">
+                                        <SimplePredicate field="ppgGreen" operator="lessOrEqual" value="6374361.5"/>
+                                        <ScoreDistribution value="0" recordCount="51.0" confidence="1.0"/>
+                                        <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                    </Node>
+                                    <Node id="45" recordCount="10.0">
+                                        <SimplePredicate field="ppgGreen" operator="greaterThan" value="6374361.5"/>
+                                        <Node id="46" score="0" recordCount="5.0">
+                                            <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="5.955577"/>
+                                            <ScoreDistribution value="0" recordCount="5.0" confidence="1.0"/>
+                                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                        </Node>
+                                        <Node id="47" score="1" recordCount="5.0">
+                                            <SimplePredicate field="accelerometerX" operator="greaterThan" value="5.955577"/>
+                                            <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                            <ScoreDistribution value="1" recordCount="5.0" confidence="1.0"/>
+                                        </Node>
+                                    </Node>
+                                </Node>
+                                <Node id="48" score="1" recordCount="12.0">
+                                    <SimplePredicate field="accelerometerX" operator="greaterThan" value="8.9758625"/>
+                                    <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                    <ScoreDistribution value="1" recordCount="12.0" confidence="1.0"/>
+                                </Node>
+                            </Node>
+                        </Node>
+                    </Node>
+                </Node>
+                <Node id="49" recordCount="914.0">
+                    <SimplePredicate field="heartRate" operator="greaterThan" value="1993749.0"/>
+                    <Node id="50" recordCount="836.0">
+                        <SimplePredicate field="ppgIR" operator="lessOrEqual" value="97.5"/>
+                        <Node id="51" score="0" recordCount="463.0">
+                            <SimplePredicate field="ppgRed" operator="lessOrEqual" value="6439909.5"/>
+                            <ScoreDistribution value="0" recordCount="463.0" confidence="1.0"/>
+                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                        </Node>
+                        <Node id="52" recordCount="373.0">
+                            <SimplePredicate field="ppgRed" operator="greaterThan" value="6439909.5"/>
+                            <Node id="53" recordCount="97.0">
+                                <SimplePredicate field="heartRate" operator="lessOrEqual" value="2103091.5"/>
+                                <Node id="54" score="0" recordCount="47.0">
+                                    <SimplePredicate field="ppgIR" operator="lessOrEqual" value="94.0"/>
+                                    <ScoreDistribution value="0" recordCount="47.0" confidence="1.0"/>
+                                    <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                </Node>
+                                <Node id="55" recordCount="50.0">
+                                    <SimplePredicate field="ppgIR" operator="greaterThan" value="94.0"/>
+                                    <Node id="56" score="1" recordCount="35.0">
+                                        <SimplePredicate field="ppgRed" operator="lessOrEqual" value="6567947.0"/>
+                                        <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                        <ScoreDistribution value="1" recordCount="35.0" confidence="1.0"/>
+                                    </Node>
+                                    <Node id="57" recordCount="15.0">
+                                        <SimplePredicate field="ppgRed" operator="greaterThan" value="6567947.0"/>
+                                        <Node id="58" score="0" recordCount="14.0">
+                                            <SimplePredicate field="pressure" operator="lessOrEqual" value="7.455544"/>
+                                            <ScoreDistribution value="0" recordCount="14.0" confidence="1.0"/>
+                                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                        </Node>
+                                        <Node id="59" score="1" recordCount="1.0">
+                                            <SimplePredicate field="pressure" operator="greaterThan" value="7.455544"/>
+                                            <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                            <ScoreDistribution value="1" recordCount="1.0" confidence="1.0"/>
+                                        </Node>
+                                    </Node>
+                                </Node>
+                            </Node>
+                            <Node id="60" recordCount="276.0">
+                                <SimplePredicate field="heartRate" operator="greaterThan" value="2103091.5"/>
+                                <Node id="61" recordCount="13.0">
+                                    <SimplePredicate field="accelerometerY" operator="lessOrEqual" value="-6.8821325"/>
+                                    <Node id="62" score="0" recordCount="9.0">
+                                        <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="6.2464724"/>
+                                        <ScoreDistribution value="0" recordCount="9.0" confidence="1.0"/>
+                                        <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                    </Node>
+                                    <Node id="63" recordCount="4.0">
+                                        <SimplePredicate field="accelerometerX" operator="greaterThan" value="6.2464724"/>
+                                        <Node id="64" score="1" recordCount="3.0">
+                                            <SimplePredicate field="ppgRed" operator="lessOrEqual" value="6629442.0"/>
+                                            <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                            <ScoreDistribution value="1" recordCount="3.0" confidence="1.0"/>
+                                        </Node>
+                                        <Node id="65" score="0" recordCount="1.0">
+                                            <SimplePredicate field="ppgRed" operator="greaterThan" value="6629442.0"/>
+                                            <ScoreDistribution value="0" recordCount="1.0" confidence="1.0"/>
+                                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                        </Node>
+                                    </Node>
+                                </Node>
+                                <Node id="66" recordCount="263.0">
+                                    <SimplePredicate field="accelerometerY" operator="greaterThan" value="-6.8821325"/>
+                                    <Node id="67" recordCount="243.0">
+                                        <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="8.635885"/>
+                                        <Node id="68" recordCount="15.0">
+                                            <SimplePredicate field="gyroscopeX" operator="lessOrEqual" value="-0.43004912"/>
+                                            <Node id="69" score="0" recordCount="13.0">
+                                                <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="5.6000376"/>
+                                                <ScoreDistribution value="0" recordCount="13.0" confidence="1.0"/>
+                                                <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                            </Node>
+                                            <Node id="70" score="1" recordCount="2.0">
+                                                <SimplePredicate field="accelerometerX" operator="greaterThan" value="5.6000376"/>
+                                                <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                                <ScoreDistribution value="1" recordCount="2.0" confidence="1.0"/>
+                                            </Node>
+                                        </Node>
+                                        <Node id="71" score="0" recordCount="228.0">
+                                            <SimplePredicate field="gyroscopeX" operator="greaterThan" value="-0.43004912"/>
+                                            <ScoreDistribution value="0" recordCount="228.0" confidence="1.0"/>
+                                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                        </Node>
+                                    </Node>
+                                    <Node id="72" recordCount="20.0">
+                                        <SimplePredicate field="accelerometerX" operator="greaterThan" value="8.635885"/>
+                                        <Node id="73" score="1" recordCount="1.0">
+                                            <SimplePredicate field="accelerometerX" operator="lessOrEqual" value="8.684967"/>
+                                            <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                            <ScoreDistribution value="1" recordCount="1.0" confidence="1.0"/>
+                                        </Node>
+                                        <Node id="74" recordCount="19.0">
+                                            <SimplePredicate field="accelerometerX" operator="greaterThan" value="8.684967"/>
+                                            <Node id="75" score="0" recordCount="14.0">
+                                                <SimplePredicate field="gyroscopeY" operator="lessOrEqual" value="0.1282817"/>
+                                                <ScoreDistribution value="0" recordCount="14.0" confidence="1.0"/>
+                                                <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                            </Node>
+                                            <Node id="76" recordCount="5.0">
+                                                <SimplePredicate field="gyroscopeY" operator="greaterThan" value="0.1282817"/>
+                                                <Node id="77" score="1" recordCount="2.0">
+                                                    <SimplePredicate field="gyroscopeY" operator="lessOrEqual" value="0.48808134"/>
+                                                    <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                                    <ScoreDistribution value="1" recordCount="2.0" confidence="1.0"/>
+                                                </Node>
+                                                <Node id="78" score="0" recordCount="3.0">
+                                                    <SimplePredicate field="gyroscopeY" operator="greaterThan" value="0.48808134"/>
+                                                    <ScoreDistribution value="0" recordCount="3.0" confidence="1.0"/>
+                                                    <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                                                </Node>
+                                            </Node>
+                                        </Node>
+                                    </Node>
+                                </Node>
+                            </Node>
+                        </Node>
+                    </Node>
+                    <Node id="79" recordCount="78.0">
+                        <SimplePredicate field="ppgIR" operator="greaterThan" value="97.5"/>
+                        <Node id="80" recordCount="61.0">
+                            <SimplePredicate field="pressure" operator="lessOrEqual" value="0.31483752"/>
+                            <Node id="81" score="1" recordCount="60.0">
+                                <SimplePredicate field="accelerometerY" operator="lessOrEqual" value="5.244499"/>
+                                <ScoreDistribution value="0" recordCount="0.0" confidence="0.0"/>
+                                <ScoreDistribution value="1" recordCount="60.0" confidence="1.0"/>
+                            </Node>
+                            <Node id="82" score="0" recordCount="1.0">
+                                <SimplePredicate field="accelerometerY" operator="greaterThan" value="5.244499"/>
+                                <ScoreDistribution value="0" recordCount="1.0" confidence="1.0"/>
+                                <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                            </Node>
+                        </Node>
+                        <Node id="83" score="0" recordCount="17.0">
+                            <SimplePredicate field="pressure" operator="greaterThan" value="0.31483752"/>
+                            <ScoreDistribution value="0" recordCount="17.0" confidence="1.0"/>
+                            <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+                        </Node>
+                    </Node>
+                </Node>
+            </Node>
+            <Node id="84" score="0" recordCount="3365.0">
+                <SimplePredicate field="saturation" operator="greaterThan" value="1022.0951"/>
+                <ScoreDistribution value="0" recordCount="3365.0" confidence="1.0"/>
+                <ScoreDistribution value="1" recordCount="0.0" confidence="0.0"/>
+            </Node>
+        </Node>
+    </TreeModel>
+</PMML>
